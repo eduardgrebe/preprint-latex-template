@@ -1,0 +1,256 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version EG-1.5 (05/07/2018)
+%
+% This template is a modified version of a template downloaded from
+% http://www.LaTeXTemplates.com, originally created by Frits Wenneker
+% (http://www.howtotex.com) with extensive modifications by Vel
+% (vel@LaTeXTemplates.com).
+%
+% This version further modified by Eduard Grebe (ed@eduardgrebe.net). A few
+% elements of the PLOS submission style have been incorporated
+%
+% Available from https://github.com/eduardgrebe/preprint-latex-template
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% This template is designed to be compiled with XeLaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,10pt]{article} %twocolumn 12pt
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template
+
+% Uncomment the following 2 lines for compilation
+%\usepackage[sc]{mathpazo} % Use the Palatino font
+%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+
+% The next 3 lines require compilation with XeLaTeX and installation of
+% Baskerville and Menlo (default on macOS). To compile with pdflatex comment out
+% the lines
+\usepackage{fontspec} % \usepackage[no-math]{fontspec}
+\setmainfont[Mapping=tex-text]{Baskerville}
+\setmonofont[Scale=0.8]{Menlo}
+%\usepackage{unicode-math}
+%\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX]{TeX Gyre Pagella Math}
+
+% This should use a maths font that matches Palatino
+%\usepackage{mathpazo}
+
+
+%\linespread{1.05} % Line spacing - Palatino needs more space between lines
+%\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+%\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+%\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+%\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+%\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Running title $\bullet$ \today} % Custom header text % $\bullet$ Vol. XXI, No. 1
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{authblk}
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Bold and left justify captions, as well as ensure aligned with \adjustwidth
+% environment
+%\usepackage[aboveskip=1pt,labelfont=bf,justification=centering,singlelinecheck=off]{caption} %raggedright
+
+%\usepackage{array}
+% \thickhline command for thick horizontal lines that span the table
+%\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+%\hline
+%\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+
+\title{Article Title} % Article title
+
+\author[1†]{First Author}
+\author[2†*]{Second Author}
+\author[3]{Third Author}
+\affil[1]{First Affiliation}
+\affil[2]{Second Affiliation}
+\affil[3]{Third Affiliation}
+\affil[†]{These authors contributed equally.}
+\affil[*]{\href{mailto:eduardgrebe@sun.ac.za}{eduardgrebe@sun.ac.za}}
+% \author{%
+% \textsc{John Smith}\thanks{A thank you or further information} \\[1ex] % Your name
+% \normalsize University of California \\ % Your institution
+% \normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
+% %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+% %\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+% %\normalsize University of Utah \\ % Second author's institution
+% %\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+% }
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent \blindtext % Dummy abstract text - replace \blindtext with your abstract text
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+\lettrine[nindent=0em,lines=3]{L} orem ipsum dolor sit amet, consectetur adipiscing elit.
+\blindtext % Dummy text
+
+\begin{eqnarray}
+\label{eq:kassanjee}
+\lambda = \frac{P_H \cdot (P_{R|+}-\epsilon_T)}{(1 - P_H) \cdot (\Omega_T - \epsilon_T \cdot T)}
+\end{eqnarray}
+
+\blindtext % Dummy text
+
+%------------------------------------------------
+
+\section{Methods}
+
+Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas.
+\begin{itemize}
+\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
+\item Curabitur feugiat
+\item turpis sed auctor facilisis
+\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
+\item Fusce fermentum, mi sit amet euismod rutrum
+\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
+\item Pellentesque bibendum pretium aliquet
+\end{itemize}
+\blindtext % Dummy text
+
+Text requiring further explanation\footnote{Example footnote}.
+
+%------------------------------------------------
+
+\section{Results}
+
+\begin{table}
+\caption{{\bf Example table}}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\begin{adjustwidth}{-20mm}{0mm} % Comment out/remove adjustwidth environment if table fits in text column.
+\begin{flushleft}\caption{
+{\bf ‘Average incidence’ estimates by age group using the biomarker and synthetic cohort methods.}}\end{flushleft}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+% \multicolumn{1}{|c|}{\bf Age group} & {\bf Males}         & {\bf Females}       & {\bf Total} \\
+%                 & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI) \\
+% \multicolumn{1}{|c|}{\emph{years}}   & \emph{cases/100PY} & \emph{cases/100PY} & \emph{cases/100PY} \\ \thickhline
+                                      & \multicolumn{3}{|c|}{\bf Age-continuous biomarker mothod} & \multicolumn{3}{|c|}{\bf Synthetic cohort method}    \\ \hline
+\multicolumn{1}{|c|}{\bf Age group}   & {\bf Males}         & {\bf Females}       & {\bf Total}         & {\bf Males}         & {\bf Females}       & {\bf Total} \\
+                                      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI) \\
+\multicolumn{1}{|c|}{\emph{years}}    & \emph{cases/100PY}  & \emph{cases/100PY}  & \emph{cases/100PY}  & \emph{cases/100PY}  & \emph{cases/100PY}  & \emph{cases/100PY} \\ \hline %\thickhline
+[15,20)                               & 0.45 (0.08,0.88)    & 1.92 (1.02,3.05)    & 1.20 (0.73,1.78)    & 0.27 (0.00,0.60)    & 2.90 (2.30,3.48)    & 1.61 (1.24,1.92) \\ \hline
+[20,25)                               & 0.71 (0.16,1.38)    & 3.73 (2.41,5.30)    & 2.20 (1.51,2.92)    & 1.59 (1.14,2.05)    & 5.26 (4.53,6.20)    & 3.40 (2.96,3.91) \\ \hline
+[25,30)                               & 1.50 (0.40,2.73)    & 3.62 (2.04,5.38)    & 2.52 (1.52,3.45)    & 5.09 (3.36,6.64)    & 5.70 (4.33,7.30)    & 5.38 (4.23,6.65) \\ \hline
+[30,35)                               & 2.02 (0.24,4.50)    & 2.66 (0.71,5.47)    & 2.33 (0.99,4.30)    & 4.07 (0.00,11.18)   & 8.53 (2.29,16.43)   & 6.20 (2.47,11.29) \\ \hline
+[15,30)                               & 0.81 (0.22,1.45)    & 2.95 (1.98,4.04)    & 1.87 (1.31,2.43)    & 2.00 (1.53,2.46)    & 4.39 (4.00,4.85)    & 3.19 (2.83,3.56) \\ \hline
+\end{tabular}
+\begin{flushleft} Weighted by susceptible population density.
+\end{flushleft}
+\label{table2}
+\end{adjustwidth}
+\end{table}
+
+\blindtext % Dummy text
+
+\begin{equation}
+\label{eq:emc}
+e = mc^2
+\end{equation}
+
+\blindtext % Dummy text
+
+%------------------------------------------------
+
+\section{Discussion}
+
+\subsection{Subsection One}
+
+A statement requiring citation \cite{Schlegel2016}.
+\blindtext % Dummy text
+
+\subsection{Subsection Two}
+
+\blindtext % Dummy text
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\bibliography{references}
+
+\bibliographystyle{vancouver}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
