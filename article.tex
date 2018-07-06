@@ -24,35 +24,42 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,10pt,british]{article} %twocolumn 12pt
+\documentclass[a4paper,12pt,british]{article} %twocolumn 12pt
+\usepackage[british]{babel} % Language hyphenation and typographical rules
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt,headheight=15pt]{geometry} % Document margins
 
 \usepackage{blindtext} % Package to generate dummy text throughout this template
 
-% Uncomment the following 2 lines for compilation
+% Uncomment the following 3 lines for compilation with pdflatex
 %\usepackage[sc]{mathpazo} % Use the Palatino font
 %\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 
 % The next 3 lines require compilation with XeLaTeX and installation of
 % Baskerville and Menlo (default on macOS). To compile with pdflatex comment out
-% the lines
+% these lines and uncomment the mathpazo lines
 \usepackage{fontspec} % \usepackage[no-math]{fontspec}
 \setmainfont[Mapping=tex-text]{Baskerville}
 \setmonofont[Scale=0.8]{Menlo}
-%\usepackage{unicode-math}
-%\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX]{TeX Gyre Pagella Math}
+
 
 % This should use a maths font that matches Palatino
 %\usepackage{mathpazo}
-
-
 %\linespread{1.05} % Line spacing - Palatino needs more space between lines
 %\usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
-\usepackage[english]{babel} % Language hyphenation and typographical rules
+% Maths
+\usepackage{amsmath}
 
-\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
-\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+% The next 3 lines require compilation with XeLaTeX and installation of
+% Baskerville and Menlo (default on macOS). To compile with pdflatex comment out
+% these lines and uncomment the mathpazo line
+\usepackage{unicode-math}
+\unimathsetup{math-style=TeX} % set to ISO if you desire upright capital Greek letters
+\setmathfont{Asana-Math.otf}
+
+
+\usepackage[center,labelfont=bf,up,textfont=bf,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
@@ -70,12 +77,35 @@
 %\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
 %\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
 
+\usepackage[calc]{datetime2} %Dates in ISO format
+  \DTMnewdatestyle
+    {dMyyyy}% label
+    {% definitions
+      \renewcommand*{\DTMdisplaydate}[4]{
+      \number##3
+      \space
+      \DTMmonthname{##2}
+      \number##1}
+      \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}
+    }
+    \DTMnewdatestyle
+      {Myyyy}% label
+      {% definitions
+        \renewcommand*{\DTMdisplaydate}[4]{
+        \DTMmonthname{##2}
+        \number##1}
+        \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}
+      }
+
+  %\DTMsetdatestyle{Myyyy} % Set date display to, e.g. "July 2018"
+  \DTMsetdatestyle{dMyyyy} % Set date display to, e.g. "6 July 2018"
+
 \usepackage{fancyhdr} % Headers and footers
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ \today} % Custom header text % $\bullet$ Vol. XXI, No. 1
-\fancyfoot[RO,LE]{\thepage} % Custom footer text
+\fancyhead[C]{Running title $\bullet$ \Today} % Custom header text % $\bullet$ Vol. XXI, No. 1
+\fancyfoot[C]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
 
@@ -86,9 +116,7 @@
 % Use adjustwidth environment to exceed column width (see example table in text)
 \usepackage{changepage}
 
-% Bold and left justify captions, as well as ensure aligned with \adjustwidth
-% environment
-\usepackage[aboveskip=1pt,labelfont=bf,justification=centering,singlelinecheck=off]{caption} %raggedright
+\usepackage{graphicx}
 
 %\usepackage{array}
 % \thickhline command for thick horizontal lines that span the table
@@ -96,15 +124,7 @@
 %\hline
 %\noalign{\global\arrayrulewidth\savedwidth}}
 
-% Create a proper date format
-% \usepackage{fmtcount}
-% \usepackage[calc]{datetime2}
-% \DTMnewdatestyle{sadate}{%
-% \renewcommand{\DTMdisplaydate}[4]{%
-% \DTMmonthname{##2} \ordinalnum{##2}, \number##1 }%
-% \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}%
-% }
-% \DTMsetdatestyle{sadate}
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -117,15 +137,15 @@
 
 \title{Article Title} % Article title
 
-\author[1†]{First Author}
-\author[2†*]{Second Author}
+\author[1†*]{Eduard Grebe}
+\author[2†]{Second Author}
 \author[3]{Third Author}
-\affil[1]{First Affiliation}
+\affil[1]{DST-NRF Centre of Excellence in Epidemiological Modelling and Analysis (SACEMA), Stellenbosch University, Stellenbosch, South Africa}
 \affil[2]{Second Affiliation}
 \affil[3]{Third Affiliation}
 \affil[†]{These authors contributed equally.}
 \affil[*]{\href{mailto:eduardgrebe@sun.ac.za}{eduardgrebe@sun.ac.za}}
-\date{Draft. July 2018} % Leave empty to omit a date
+\date{\Today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 \noindent \blindtext % Dummy abstract text - replace \blindtext with your abstract text
@@ -177,9 +197,11 @@ Text requiring further explanation\footnote{Example footnote}.
 
 \section{Results}
 
+In the results section we have Table~\ref{table1} and Table~\ref{table2}.
+
 \begin{table}
-\caption{{\bf Example table}}
 \centering
+\caption{Example table}
 \begin{tabular}{llr}
 \toprule
 \multicolumn{2}{c}{Name} \\
@@ -190,17 +212,15 @@ John & Doe & $7.5$ \\
 Richard & Miles & $2$ \\
 \bottomrule
 \end{tabular}
+\label{table1}
 \end{table}
 
-\begin{table}[!ht]
-\begin{adjustwidth}{-20mm}{0mm} % Comment out/remove adjustwidth environment if table fits in text column.
-\caption{\bf ‘Average incidence’ estimates by age group using the biomarker and synthetic cohort methods.}
+\begin{table} %[!ht] uncomment to control placement
+\caption{‘Average incidence’ estimates by age group using the biomarker and synthetic cohort methods}
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
-% \multicolumn{1}{|c|}{\bf Age group} & {\bf Males}         & {\bf Females}       & {\bf Total} \\
-%                 & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI) \\
-% \multicolumn{1}{|c|}{\emph{years}}   & \emph{cases/100PY} & \emph{cases/100PY} & \emph{cases/100PY} \\ \thickhline
                                       & \multicolumn{3}{|c|}{\bf Age-continuous biomarker mothod} & \multicolumn{3}{|c|}{\bf Synthetic cohort method}    \\ \hline
 \multicolumn{1}{|c|}{\bf Age group}   & {\bf Males}         & {\bf Females}       & {\bf Total}         & {\bf Males}         & {\bf Females}       & {\bf Total} \\
                                       & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI)      & P.E. (95\% CI) \\
@@ -211,11 +231,19 @@ Richard & Miles & $2$ \\
 [30,35)                               & 2.02 (0.24,4.50)    & 2.66 (0.71,5.47)    & 2.33 (0.99,4.30)    & 4.07 (0.00,11.18)   & 8.53 (2.29,16.43)   & 6.20 (2.47,11.29) \\ \hline
 [15,30)                               & 0.81 (0.22,1.45)    & 2.95 (1.98,4.04)    & 1.87 (1.31,2.43)    & 2.00 (1.53,2.46)    & 4.39 (4.00,4.85)    & 3.19 (2.83,3.56) \\ \hline
 \end{tabular}
-\begin{flushleft} Weighted by susceptible population density.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
+}
+\label{table2}
 \end{table}
+
+\blindtext
+
+We also have Figure~\ref{figure1}. We can calso refer explicitly to equations, for example Equation~\ref{eq:emc}
+
+\begin{figure}[!h] % here we are forcing placement
+\caption{HIV incidence by age in males and females aged 15-30, using the synthetic cohort, recency biomarker and combined methods.}
+\includegraphics[width = 1\textwidth]{Figure1.pdf}
+\label{figure1}
+\end{figure}
 
 \blindtext % Dummy text
 
