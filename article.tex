@@ -24,7 +24,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,10pt]{article} %twocolumn 12pt
+\documentclass[a4paper,10pt,british]{article} %twocolumn 12pt
 
 \usepackage{blindtext} % Package to generate dummy text throughout this template
 
@@ -88,7 +88,7 @@
 
 % Bold and left justify captions, as well as ensure aligned with \adjustwidth
 % environment
-%\usepackage[aboveskip=1pt,labelfont=bf,justification=centering,singlelinecheck=off]{caption} %raggedright
+\usepackage[aboveskip=1pt,labelfont=bf,justification=centering,singlelinecheck=off]{caption} %raggedright
 
 %\usepackage{array}
 % \thickhline command for thick horizontal lines that span the table
@@ -96,7 +96,15 @@
 %\hline
 %\noalign{\global\arrayrulewidth\savedwidth}}
 
-
+% Create a proper date format
+% \usepackage{fmtcount}
+% \usepackage[calc]{datetime2}
+% \DTMnewdatestyle{sadate}{%
+% \renewcommand{\DTMdisplaydate}[4]{%
+% \DTMmonthname{##2} \ordinalnum{##2}, \number##1 }%
+% \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}%
+% }
+% \DTMsetdatestyle{sadate}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -117,16 +125,7 @@
 \affil[3]{Third Affiliation}
 \affil[†]{These authors contributed equally.}
 \affil[*]{\href{mailto:eduardgrebe@sun.ac.za}{eduardgrebe@sun.ac.za}}
-% \author{%
-% \textsc{John Smith}\thanks{A thank you or further information} \\[1ex] % Your name
-% \normalsize University of California \\ % Your institution
-% \normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
-% %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
-% %\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
-% %\normalsize University of Utah \\ % Second author's institution
-% %\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
-% }
-\date{\today} % Leave empty to omit a date
+\date{Draft. July 2018} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 \noindent \blindtext % Dummy abstract text - replace \blindtext with your abstract text
@@ -195,8 +194,7 @@ Richard & Miles & $2$ \\
 
 \begin{table}[!ht]
 \begin{adjustwidth}{-20mm}{0mm} % Comment out/remove adjustwidth environment if table fits in text column.
-\begin{flushleft}\caption{
-{\bf ‘Average incidence’ estimates by age group using the biomarker and synthetic cohort methods.}}\end{flushleft}
+\caption{\bf ‘Average incidence’ estimates by age group using the biomarker and synthetic cohort methods.}
 \centering
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
@@ -215,7 +213,7 @@ Richard & Miles & $2$ \\
 \end{tabular}
 \begin{flushleft} Weighted by susceptible population density.
 \end{flushleft}
-\label{table2}
+\label{table1}
 \end{adjustwidth}
 \end{table}
 
@@ -234,7 +232,8 @@ e = mc^2
 
 \subsection{Subsection One}
 
-A statement requiring citation \cite{Schlegel2016}.
+A statement requiring citation \cite{Schlegel2016} and another \cite{Williams2001}.
+
 \blindtext % Dummy text
 
 \subsection{Subsection Two}
@@ -247,7 +246,7 @@ A statement requiring citation \cite{Schlegel2016}.
 
 \bibliography{references}
 
-\bibliographystyle{vancouver}
+\bibliographystyle{plos2015}
 
 
 
