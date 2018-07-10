@@ -266,6 +266,12 @@ FUNCTION {add.semicolon}
   no.blank.or.punct
 }
 
+FUNCTION {add.period}
+{
+  ". " *
+  no.blank.or.punct
+}
+
 FUNCTION {date.block}
 {
   "." *
@@ -1612,7 +1618,7 @@ FUNCTION {preprint}
   "journal" output.check
   format.journal.date "year" output.check
   add.period
-  % add.semicolon
+  %add.semicolon
   % format.vol.num.pages output
   new.block
   format.doi output

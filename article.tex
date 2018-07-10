@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Journal Article
 % LaTeX Template
-% Version EG-1.5 (05/07/2018)
+% Version EG-1.6 (10/07/2018)
 %
 % This template is a modified version of a template downloaded from
 % http://www.LaTeXTemplates.com, originally created by Frits Wenneker
@@ -68,8 +68,8 @@
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
 
 \usepackage{abstract} % Allows abstract customization
-\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
-\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\renewcommand{\abstractnamefont}{\normalfont\bfseries\large} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\normalsize} % Set the abstract itself to small italic text %\small\itshape
 
 \usepackage{titlesec} % Allows customization of titles
 %\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
@@ -100,16 +100,17 @@
   %\DTMsetdatestyle{Myyyy} % Set date display to, e.g. "July 2018"
   \DTMsetdatestyle{dMyyyy} % Set date display to, e.g. "6 July 2018"
 
-\usepackage{fancyhdr} % Headers and footers
-\pagestyle{fancy} % All pages have headers and footers
-\fancyhead{} % Blank out the default header
-\fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ \Today} % Custom header text % $\bullet$ Vol. XXI, No. 1
-\fancyfoot[C]{\thepage} % Custom footer text
+%\usepackage{fancyhdr} % Headers and footers
+%\pagestyle{fancy} % All pages have headers and footers
+%\fancyhead{} % Blank out the default header
+%\fancyfoot{} % Blank out the default footer
+%\fancyhead[C]{Performance comparison Maxim and Sedia LAg $\bullet$ \Today} % Custom header text % $\bullet$ Vol. XXI, No. 1
+%\fancyfoot[C]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
 
 \usepackage{authblk}
+\renewcommand\Affilfont{\footnotesize}
 
 \usepackage{hyperref} % For hyperlinks in the PDF
 
