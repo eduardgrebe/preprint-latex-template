@@ -1,6 +1,0 @@
-#!/bin/bash
-xelatex article
-bibtex8 article
-xelatex article
-bibtex8 article
-xelatex article
